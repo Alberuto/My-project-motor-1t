@@ -7,6 +7,12 @@ TagManager:
   - Level1
   - Level2
   - Help
+  - Suelo
+  - Rojo
+  - Rosa
+  - Verde
+  - Azul
+  - Negro
   layers:
   - Default
   - TransparentFX

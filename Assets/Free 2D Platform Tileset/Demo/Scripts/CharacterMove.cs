@@ -55,8 +55,8 @@ public class CharacterMove : MonoBehaviour
             isMoving = false;
         }
         anim.SetBool("isMoving", isMoving);
-        Vector2 movement = new Vector2(h * speed, rb.velocity.y);
-        rb.velocity = movement; //moving rigidbody2D
+        Vector2 movement = new Vector2(h * speed, rb.linearVelocity.y);
+        rb.linearVelocity = movement; //moving rigidbody2D
 
         //Demo auto reset position
         if (transform.position.y < -5f){
