@@ -949,7 +949,7 @@ MonoBehaviour:
     para acceder a ellos deberas hablar con cada uno de los dos pajaros de los extremos,
     ellos te llevaran a su universo.\n\nSelecciona el de la izquierda para ayudar
     a angry a recoger las crias de gorrion recien nacidas. \n\nSelecciona el de la
-    derecha para ayudar a pinky a alimentar a su familia.
+    derecha para ayudar a Greenson a alimentar a su familia.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1160,6 +1160,7 @@ RectTransform:
   - {fileID: 1351704265}
   - {fileID: 1116459567}
   - {fileID: 1285094660}
+  - {fileID: 1928615698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2029,12 +2030,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928615696}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -484.5, y: -270.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 991534153}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1998139967
 PrefabInstance:
@@ -2255,12 +2256,11 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1928615698}
-  - {fileID: 619394802}
   - {fileID: 2141233983}
+  - {fileID: 619394802}
   - {fileID: 519420032}
+  - {fileID: 991534153}
   - {fileID: 911465297}
   - {fileID: 988238027}
   - {fileID: 430844063}
   - {fileID: 1317581551}
-  - {fileID: 991534153}

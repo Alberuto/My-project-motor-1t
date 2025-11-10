@@ -63,7 +63,5 @@ public class playerMove : MonoBehaviour{
             : baseJugador == BaseFacing.Up ? 90f
             : baseJugador == BaseFacing.Left ? 180f
             : 270f;
-
-        return 0f;
     }
 }

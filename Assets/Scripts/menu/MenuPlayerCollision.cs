@@ -27,5 +27,4 @@ public class PlayerCollision : MonoBehaviour {
         helpCanvas.SetActive(false);
         uiCanvas.SetActive(true);
     }
-
 }
