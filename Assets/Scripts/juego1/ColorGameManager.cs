@@ -54,10 +54,16 @@ public class ColorGameManager : MonoBehaviour {
 
             resultado.SetActive(true);
 
-            if (puntos >= 10)
+            if (puntos >= 10){
+                
                 textVictoria.gameObject.SetActive(true);
-            else
+                textDerrota.gameObject.SetActive(false);
+            }
+            else{
+
                 textDerrota.gameObject.SetActive(true);
+                textVictoria.gameObject.SetActive(false);
+            }
         }
     }
     public void VolverAlMenu() {

@@ -945,11 +945,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Panel de ayuda de MiniBirds.\n\nEsta aplicacion contiene dos minijuegos,
+  m_text: "Panel de ayuda de MiniBirds.\\n\\nEsta aplicacion contiene dos niveles,
     para acceder a ellos deberas hablar con cada uno de los dos pajaros de los extremos,
-    ellos te llevaran a su universo.\n\nSelecciona el de la izquierda para ayudar
-    a angry a recoger las crias de gorrion recien nacidas. \n\nSelecciona el de la
-    derecha para ayudar a Greenson a alimentar a su familia.
+    ellos te llevaran a su universo.\\n\\nSelecciona el de la izquierda para ayudar
+    a angry a recoger las crias de gorrion recien nacidas en el espacio interestelar.
+    \\n\\nSelecciona el de la derecha para ayudar a Greenson a rescatar a su familia
+    perdida en la monta\xF1a."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -44,10 +44,16 @@ public class ColorGameManager2 : MonoBehaviour {
         if (puntos >= 5 || vidas <= 0) {
             resultado.SetActive(true);
 
-            if (puntos >= 5)
+            if (puntos >= 5){
+
                 textVictoria.gameObject.SetActive(true);
-            else
+                textDerrota.gameObject.SetActive(false);
+            }
+            else{
                 textDerrota.gameObject.SetActive(true);
+                textVictoria.gameObject.SetActive(false);
+
+            }
         }
     }
     public void VolverAlMenu(){
