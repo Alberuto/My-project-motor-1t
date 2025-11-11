@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class playerCollision : MonoBehaviour {
+public class playerCollision2 : MonoBehaviour {
 
-    public ColorGameManager colorManager; // Asignar en el inspector
+    public ColorGameManager2 colorManager; // Asignar en el inspector
 
     private void OnTriggerEnter2D(Collider2D other) {
 

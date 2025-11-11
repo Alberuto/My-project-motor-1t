@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class playerMove : MonoBehaviour{
+public class playerMenuMove : MonoBehaviour{
 
     [Header("Ajustes")]
     public float moveSpeed;

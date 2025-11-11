@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ColorGameManager : MonoBehaviour {
+public class ColorGameManager2 : MonoBehaviour {
 
     public TextMeshProUGUI colorObjetivoText;
     public TextMeshProUGUI puntosText;
@@ -16,51 +16,41 @@ public class ColorGameManager : MonoBehaviour {
     public string[] colorTags = { "Azul", "Rojo", "Rosa", "Verde", "Negro" };
     public int vidas = 3, puntos = 0;
 
-    private string colorObjetivo; // Esta línea es clave
-    private Dictionary<string, int> contadorColores = new Dictionary<string, int>();
+    private string colorObjetivo;
+    private List<string> coloresDisponibles;
 
     private void Start() {
-        // Inicializa el contador para cada color
-        foreach (string color in colorTags) {
-
-            contadorColores[color] = 0;
-        }
+        // Inicializa la lista de colores disponibles
+        coloresDisponibles = new List<string>(colorTags);
         SiguienteColor();
     }
     public void SiguienteColor() {
-
-        var coloresDisponibles = colorTags.Where(c => contadorColores[c] < 2).ToArray();
-        if (coloresDisponibles.Length == 0) {
-
-            Debug.Log("Todos los colores han sido pedidos dos veces.");
+        if (coloresDisponibles.Count == 0) {
+            Debug.Log("No quedan colores disponibles.");
             return;
         }
-
-        int idx = Random.Range(0, coloresDisponibles.Length); // Cambiado aquí
+        int idx = Random.Range(0, coloresDisponibles.Count);
         colorObjetivo = coloresDisponibles[idx];
-        contadorColores[colorObjetivo]++;
+        coloresDisponibles.RemoveAt(idx); // Elimina el color para que no se repita
         colorObjetivoText.text = "¡Toca un pájaro " + colorObjetivo + "!";
     }
     public bool ComprobarSeleccion(string tag) {
-
         return tag == colorObjetivo;
     }
     public void ActualizarUI() {
-
         vidasText.text = "vidas: " + vidas;
         puntosText.text = "puntuacion: " + puntos;
 
-        if (puntos >= 10 || vidas <= 0) {
-
+        if (puntos >= 5 || vidas <= 0) {
             resultado.SetActive(true);
 
-            if (puntos >= 10)
+            if (puntos >= 5)
                 textVictoria.gameObject.SetActive(true);
             else
                 textDerrota.gameObject.SetActive(true);
         }
     }
-    public void VolverAlMenu() {
+    public void VolverAlMenu(){
 
         SceneManager.LoadScene("Menu");
     }

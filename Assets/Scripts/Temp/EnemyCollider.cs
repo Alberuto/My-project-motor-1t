@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class EnemyCollider : MonoBehaviour{
 
     //[SerializeField] private float tiempoEspera;
-    private playerMove playerMovement;
+    private playerMenuMove playerMovement;
     [Header("Sonidos")]
     [SerializeField] private AudioSource sonidoMorir;
     [SerializeField] private AudioSource sonidoDamage;
@@ -15,7 +15,7 @@ public class EnemyCollider : MonoBehaviour{
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
 
-        playerMovement = GetComponent<playerMove>();
+        playerMovement = GetComponent<playerMenuMove>();
 
     }
 
