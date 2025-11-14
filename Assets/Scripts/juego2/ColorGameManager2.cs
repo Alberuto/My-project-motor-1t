@@ -19,7 +19,6 @@ public class ColorGameManager2 : MonoBehaviour {
     private string colorObjetivo;
     private List<string> coloresDisponibles;
 
-
     [SerializeField] private AudioClip sonidoVictoria;
     [SerializeField] private AudioClip sonidoDerrota;
 
@@ -48,18 +47,16 @@ public class ColorGameManager2 : MonoBehaviour {
         if (puntos >= 5 || vidas <= 0) {
             resultado.SetActive(true);
 
-            if (puntos >= 5){
-
+            if (puntos >= 5) {
+                PlayerPrefs.SetInt("Nivel2Completado", 1);
                 AudioManager.Instance.PlaySound(sonidoVictoria);
                 textVictoria.gameObject.SetActive(true);
                 textDerrota.gameObject.SetActive(false);
             }
-            else{
-
+            else {
                 AudioManager.Instance.PlaySound(sonidoDerrota);
                 textDerrota.gameObject.SetActive(true);
                 textVictoria.gameObject.SetActive(false);
-
             }
         }
     }

@@ -38,7 +38,6 @@ public class ColorGameManager : MonoBehaviour {
             Debug.Log("Todos los colores han sido pedidos dos veces.");
             return;
         }
-
         int idx = Random.Range(0, coloresDisponibles.Length); // Cambiado aquí
         colorObjetivo = coloresDisponibles[idx];
         contadorColores[colorObjetivo]++;
@@ -59,6 +58,7 @@ public class ColorGameManager : MonoBehaviour {
 
             if (puntos >= 10){
                 AudioManager.Instance.PlaySound(sonidoVictoria);
+                PlayerPrefs.SetInt("Nivel1Completado", 1);
                 textVictoria.gameObject.SetActive(true);
                 textDerrota.gameObject.SetActive(false);
             }

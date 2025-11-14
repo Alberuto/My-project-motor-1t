@@ -26,6 +26,11 @@ public class PlayerCollision : MonoBehaviour {
             AudioManager.Instance.PlaySound(sonidoJuegos);
             SceneManager.LoadScene("Juego 2");
         }
+        else if (other.CompareTag("Level3")) {
+
+            AudioManager.Instance.PlaySound(sonidoJuegos);
+            SceneManager.LoadScene("Juego 3");
+        }
     }
     public void CloseHelpCanvas() {
         helpCanvas.SetActive(false);

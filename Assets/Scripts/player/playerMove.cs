@@ -3,13 +3,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMove : MonoBehaviour
-{
+public class PlayerMove : MonoBehaviour {
 
     [Header("Movimiento")][SerializeField] private float velocidadMovimiento = 6f;
     [Header("Sonidos")]
-    [SerializeField] private AudioSource sonidoSalto;
-    [SerializeField] private AudioSource sonidoAndar;
+    [SerializeField] private AudioClip sonidoSaltoClip;
 
     private Vector2 entradaMovimiento;
     private Rigidbody2D rb;
@@ -17,12 +15,12 @@ public class PlayerMove : MonoBehaviour
     public bool mirandoDerecha = true;
     private bool enSuelo = true;
 
-    void Start(){
+    void Start() {
 
         rb = GetComponent<Rigidbody2D>();
         sprite = rb.GetComponent<SpriteRenderer>();
     }
-    public void OnMove(InputValue valor){
+    public void OnMove(InputValue valor) {
 
         entradaMovimiento = valor.Get<Vector2>();
         if (entradaMovimiento.x > 0 && !mirandoDerecha)
@@ -42,7 +40,7 @@ public class PlayerMove : MonoBehaviour
         if (sprite)
             sprite.flipX = aIzquierda;
     }
-    private void OnCollisionEnter2D(Collision2D other){
+    private void OnCollisionEnter2D(Collision2D other) {
 
         if (other.gameObject.CompareTag("Suelo")) {
 
@@ -68,27 +66,14 @@ public class PlayerMove : MonoBehaviour
         v.y = 0f;
         rb.linearVelocity = v;
         rb.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
-        if (!sonidoSalto.isPlaying)
-            sonidoSalto.Play();
+        AudioManager.Instance.PlaySound(sonidoSaltoClip); // Usa AudioManager
     }
-    void Update(){
+    void Update() {
 
         bool estaAndando = Mathf.Abs(entradaMovimiento.x) > 0.1 && enSuelo;
 
-        if (estaAndando){
-
-            if (!sonidoAndar.isPlaying){
-
-                sonidoAndar.Play();
-            }
-        }
-        else{
-
-            if (sonidoAndar.isPlaying)
-                sonidoAndar.Stop();
-        }
     }
-    public bool EnSuelo(){
+    public bool EnSuelo() {
 
         return enSuelo;
     }

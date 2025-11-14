@@ -1011,8 +1011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   velocidadMovimiento: 5
-  sonidoSalto: {fileID: 0}
-  sonidoAndar: {fileID: 0}
+  sonidoSaltoClip: {fileID: 8300000, guid: a4886c94757d95d42a267f1832270926, type: 3}
   mirandoDerecha: 1
 --- !u!1 &519420028
 GameObject:

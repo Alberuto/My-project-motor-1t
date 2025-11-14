@@ -13,6 +13,7 @@ TagManager:
   - Verde
   - Azul
   - Negro
+  - Level3
   layers:
   - Default
   - TransparentFX
