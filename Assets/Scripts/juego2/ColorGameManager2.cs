@@ -19,6 +19,10 @@ public class ColorGameManager2 : MonoBehaviour {
     private string colorObjetivo;
     private List<string> coloresDisponibles;
 
+
+    [SerializeField] private AudioClip sonidoVictoria;
+    [SerializeField] private AudioClip sonidoDerrota;
+
     private void Start() {
         // Inicializa la lista de colores disponibles
         coloresDisponibles = new List<string>(colorTags);
@@ -46,10 +50,13 @@ public class ColorGameManager2 : MonoBehaviour {
 
             if (puntos >= 5){
 
+                AudioManager.Instance.PlaySound(sonidoVictoria);
                 textVictoria.gameObject.SetActive(true);
                 textDerrota.gameObject.SetActive(false);
             }
             else{
+
+                AudioManager.Instance.PlaySound(sonidoDerrota);
                 textDerrota.gameObject.SetActive(true);
                 textVictoria.gameObject.SetActive(false);
 

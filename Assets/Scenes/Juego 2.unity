@@ -995,6 +995,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e34e887bc714554b9831a3f63fffbae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerCollision2
+  sonidoError: {fileID: 8300000, guid: 610c93b8a9673534c9f76537527a9eaa, type: 3}
+  sonidoAcierto: {fileID: 8300000, guid: ccd597cf9c5c6c54588a5a93f8d0ecbb, type: 3}
   colorManager: {fileID: 621023308}
 --- !u!114 &430844069
 MonoBehaviour:
@@ -1428,6 +1430,8 @@ MonoBehaviour:
   - Negro
   vidas: 3
   puntos: 0
+  sonidoVictoria: {fileID: 8300000, guid: 3d2d3c3e369dfaa4780799d41644bd5a, type: 3}
+  sonidoDerrota: {fileID: 8300000, guid: 1a07a5486c0d0e84785d3f6f13b7919c, type: 3}
 --- !u!1 &733407133
 GameObject:
   m_ObjectHideFlags: 0

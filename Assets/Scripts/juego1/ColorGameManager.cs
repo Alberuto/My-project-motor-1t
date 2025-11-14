@@ -19,6 +19,9 @@ public class ColorGameManager : MonoBehaviour {
     private string colorObjetivo; // Esta línea es clave
     private Dictionary<string, int> contadorColores = new Dictionary<string, int>();
 
+    [SerializeField] private AudioClip sonidoVictoria;
+    [SerializeField] private AudioClip sonidoDerrota;
+
     private void Start() {
         // Inicializa el contador para cada color
         foreach (string color in colorTags) {
@@ -55,12 +58,12 @@ public class ColorGameManager : MonoBehaviour {
             resultado.SetActive(true);
 
             if (puntos >= 10){
-                
+                AudioManager.Instance.PlaySound(sonidoVictoria);
                 textVictoria.gameObject.SetActive(true);
                 textDerrota.gameObject.SetActive(false);
             }
             else{
-
+                AudioManager.Instance.PlaySound(sonidoDerrota);
                 textDerrota.gameObject.SetActive(true);
                 textVictoria.gameObject.SetActive(false);
             }

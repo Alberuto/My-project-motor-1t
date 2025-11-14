@@ -8,6 +8,6 @@ public class menuController : MonoBehaviour{
     }
     public void Load(string sceneName){
     
-        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }

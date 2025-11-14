@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class playerCollision1 : MonoBehaviour {
 
+    [SerializeField] private AudioClip sonidoError;
+    [SerializeField] private AudioClip sonidoAcierto;
+
     public ColorGameManager colorManager; // Asignar en el inspector
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -14,10 +17,12 @@ public class playerCollision1 : MonoBehaviour {
                 Destroy(other.gameObject);
                 colorManager.puntos++;
                 colorManager.SiguienteColor();
+                AudioManager.Instance.PlaySound(sonidoAcierto);
             }
             else {
                 Debug.Log("¡Incorrecto! Ese no era el color pedido.");
                 colorManager.vidas--;
+                AudioManager.Instance.PlaySound(sonidoError);
             }
             colorManager.ActualizarUI();
         }
