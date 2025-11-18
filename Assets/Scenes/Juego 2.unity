@@ -3288,12 +3288,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Nos encontramos en una monta\xF1a terricola, aqui hay gravedad, los pajaros
-    estan asustados debido a la altitud, no quieren moverse porque un aleteo podria
-    significar despe\xF1arse hacia el infinito. \\nAyudalos a poder volver a la base
-    recogiendolos por el orden de color que viene determinado para que cada uno pueda
-    viajar en su jaula apropiadamente y todos puedan volver sanos y a salvo con sus
-    padres pinky y greenson."
+  m_text: "Nos encontramos en una monta\xF1a marciana, aqui hay gravedad, los pajaros
+    estan asustados debido a la altitud y la hostilidad de las formas de vida extraterrestres,
+    no quieren moverse porque estan muy asustados y porque podrian  despe\xF1arse
+    o ser el alimento de alguna alima\xF1a marciana. \\nAyudalos a poder volver a
+    la base recogiendolos por el orden de color que viene determinado para que cada
+    uno pueda viajar en su jaula apropiadamente y todos puedan volver sanos y a salvo
+    con sus padres pinky y greenson."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
