@@ -2,14 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VidaJugador : MonoBehaviour
-{
+public class VidasJugador : MonoBehaviour{
 
-    [Header("Imágenes")][SerializeField] private List<Image> hearts = new List<Image>();
+    [Header("Imágenes")] [SerializeField] private List<Image> hearts = new List<Image>();
     [Header("Config")][SerializeField] private int maxLives;
 
     public int currentLives;
-    public static VidaJugador vj;
+    public static VidasJugador vj;
 
     private void Awake(){
 
@@ -17,23 +16,23 @@ public class VidaJugador : MonoBehaviour
         SetLives(maxLives);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start(){
-
+    void Start() {
+        
     }
     // Update is called once per frame
-    void Update(){
+    void Update() {
 
     }
-    private void SetLives(int vidas){
-
+    private void SetLives(int vidas) { 
+        
         currentLives = Mathf.Clamp(vidas, 0, maxLives);
 
         for (int i = 0; i < hearts.Count; i++){
-
-            if (i >= maxLives)
+            
+            if(i>=maxLives)
                 hearts[i].enabled = false; //hearts[i].gameObject.SetActive(false);
             //continue; lo mismo no hace falta
-            else
+            else 
                 hearts[i].enabled = true;
 
             hearts[i].gameObject.SetActive(i < currentLives);

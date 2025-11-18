@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMove : MonoBehaviour {
+public class PlayerMoveBasic : MonoBehaviour {
 
     [Header("Movimiento")][SerializeField] private float velocidadMovimiento = 6f;
     [Header("Sonidos")]
