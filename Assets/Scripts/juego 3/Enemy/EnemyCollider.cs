@@ -48,7 +48,7 @@ public class EnemyCollider : MonoBehaviour{
     }
     private IEnumerator PararYReiniciar() {
 
-        /*gameOverPanel.SetActive(true);
+        gameOverPanel.SetActive(true);
         if (gameOverPanel != null) {
             gameOverPanel.SetActive(true);
         }
@@ -62,7 +62,7 @@ public class EnemyCollider : MonoBehaviour{
         else
         {
             Debug.LogError("sonidoDamage no asignado en el Inspector.");
-        }*/
+        }
 
         playerAnimation.AnimacionMuerte();
         playerMove.Parar();
