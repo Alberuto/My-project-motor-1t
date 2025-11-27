@@ -5,18 +5,14 @@ using UnityEngine;
 public class Datos : MonoBehaviour{
 
     [Header("UI")] public Canvas canvas;
-
     public TextMeshProUGUI puntosTexto;
-
     public TextMeshProUGUI puntosDinamicos;
 
     public static Datos Instance;
 
     public int puntos;
-
     public int vidas;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
 
         if(puntosDinamicos)
@@ -24,15 +20,10 @@ public class Datos : MonoBehaviour{
 
         ActualizarDatos();
     }
-    // Update is called once per frame
-    void Update(){
-
-    }
     public void MostrarPuntosDinamicos(int punts, Vector3 posicionMundoPowerUp) {
 
         if (puntosDinamicos)
             puntosDinamicos.text = "+" + punts;
-        //convertir el mundo - > Pantalla
         Vector3 sceenPos = Camera.main.WorldToScreenPoint(posicionMundoPowerUp + Vector3.up * 1.2f);
         puntosDinamicos.transform.position = sceenPos;
 
@@ -73,7 +64,6 @@ public class Datos : MonoBehaviour{
 
         if (Instance != null && Instance != this){
             Destroy(gameObject);
-            //return; puedes descomentar y quitar el else pero no me mola.
         }
         else{
             Instance = this;
@@ -86,7 +76,7 @@ public class Datos : MonoBehaviour{
             puntosTexto.text = "Quedan: "+puntos.ToString();
     }
     public void AddPoints(int points) {
-        puntos += points;
+        puntos -= points;
         ActualizarDatos ();
     }
 }
