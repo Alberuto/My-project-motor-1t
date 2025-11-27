@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Bala : MonoBehaviour{
@@ -17,6 +18,8 @@ public class Bala : MonoBehaviour{
 
     private Rigidbody2D rb;
 
+    List<string> colorTags = new List<string> { "Rojo", "Azul", "Rosa", "Verde", "Negro" };
+
     void Start(){
 
         if (sonidoDisparo != null) { 
@@ -28,15 +31,12 @@ public class Bala : MonoBehaviour{
     }
     private void OnTriggerEnter2D(Collider2D collision){
 
-        if (collision.CompareTag("Enemy")) {
+        if (colorTags.Contains(collision.tag)) {
 
             if (sonidoExplosion != null){
 
                 sonidoExplosion.Play();
-//version con puntos estaticos:
-//                Datos.Instance.AddPoints(25);
-//                Datos.Instance.MostrarPuntosDinamicos(25,transform.position);
-//version con puntos personalizados por enemigo:
+
                 Datos.Instance.AddPoints(collision.gameObject.GetComponent<EnemyMove>().puntos);
                 Datos.Instance.MostrarPuntosDinamicos(collision.gameObject.GetComponent<EnemyMove>().puntos, transform.position);
             }
@@ -44,8 +44,5 @@ public class Bala : MonoBehaviour{
             Destroy(collision.gameObject);
             Destroy(gameObject,3f);
         }
-    }
-    void Update(){
-        
     }
 }

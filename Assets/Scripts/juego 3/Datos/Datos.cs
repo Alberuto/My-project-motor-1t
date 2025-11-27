@@ -83,7 +83,7 @@ public class Datos : MonoBehaviour{
     public void ActualizarDatos() { 
 
         if(puntosTexto)
-            puntosTexto.text = "Puntuacion: "+puntos.ToString();
+            puntosTexto.text = "Quedan: "+puntos.ToString();
     }
     public void AddPoints(int points) {
         puntos += points;

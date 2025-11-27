@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerCollision2 : MonoBehaviour {
 
@@ -23,8 +25,16 @@ public class playerCollision2 : MonoBehaviour {
                 AudioManager.Instance.PlaySound(sonidoError);
                 Debug.Log("¡Incorrecto! Ese no era el color pedido." + other.tag);
                 colorManager.vidas--;
+                if (colorManager.vidas <= 0)
+                    PararYReiniciar();
             }
             colorManager.ActualizarUI();
         }
+    }
+    private IEnumerator PararYReiniciar() {    
+        
+        yield return new WaitForSecondsRealtime(5);
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Portada");
     }
 }

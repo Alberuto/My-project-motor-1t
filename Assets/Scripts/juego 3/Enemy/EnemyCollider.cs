@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,8 +12,13 @@ public class EnemyCollider : MonoBehaviour{
     [SerializeField] private AudioSource sonidoMorir;
     [SerializeField] private AudioSource sonidoDamage;
 
+    public GameObject gameOverPanel;
+
     private VidasJugador playerLifes;
     private bool inmune = false;
+
+    List<string> colorTags = new List<string> { "Rojo", "Azul", "Rosa", "Verde", "Negro" };
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
 
@@ -22,11 +28,18 @@ public class EnemyCollider : MonoBehaviour{
     }
     private void OnCollisionEnter2D(Collision2D other) {
 
-        if (other.collider.CompareTag("Enemy")) {
+        if (colorTags.Contains(other.collider.tag)) {
 
             if (!inmune){
                 playerLifes.RemoveLives();
-                sonidoDamage.Play();
+                if (sonidoDamage != null)
+                {
+                    sonidoDamage.Play();
+                }
+                else
+                {
+                    Debug.LogError("sonidoDamage no asignado en el Inspector.");
+                }
                 StartCoroutine(ActivarInmunidad());
             }
             if (playerLifes.currentLives==0)
@@ -35,18 +48,33 @@ public class EnemyCollider : MonoBehaviour{
     }
     private IEnumerator PararYReiniciar() {
 
-       // Time.timeScale = 0;
-        sonidoMorir.Play();
+        /*gameOverPanel.SetActive(true);
+        if (gameOverPanel != null) {
+            gameOverPanel.SetActive(true);
+        }
+        else {
+            Debug.LogError("Game Over Panel no asignado en el Inspector.");
+        }
+        if (sonidoMorir != null)
+        {
+            sonidoMorir.Play();
+        }
+        else
+        {
+            Debug.LogError("sonidoDamage no asignado en el Inspector.");
+        }*/
+
         playerAnimation.AnimacionMuerte();
         playerMove.Parar();
-        yield return new WaitForSecondsRealtime (5);
+        yield return new WaitForSecondsRealtime (3);
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 0;
+        SceneManager.LoadScene("Portada");
     }
     private IEnumerator ActivarInmunidad(){
 
         inmune = true;
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(2);
         inmune = false;
     }
 }

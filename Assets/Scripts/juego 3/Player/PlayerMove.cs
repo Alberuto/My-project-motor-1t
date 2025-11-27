@@ -80,9 +80,7 @@ public class PlayerMove : MonoBehaviour{
         rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
         if(!sonidoSalto.isPlaying)
             sonidoSalto.Play();
-        //Debug.Log(valor);
     }
-    // Update is called once per frame consume recursos
     void Update(){
 
         bool estaAndando = Mathf.Abs(entradaMovimiento.x)>0.1 && enSuelo;
@@ -97,11 +95,6 @@ public class PlayerMove : MonoBehaviour{
             if (sonidoAndar.isPlaying)
                 sonidoAndar.Stop();
         }
-        /* if (entradaMovimiento.x > 0 && !mirandoDerecha)
-             Girar(false);
-         else if(entradaMovimiento.x<0 && mirandoDerecha)
-             Girar(true);
-        */
     }
     public bool EnSuelo(){
 
