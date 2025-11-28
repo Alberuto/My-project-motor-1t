@@ -20,7 +20,7 @@ public class Disparo : MonoBehaviour{
         pa = GetComponent<PlayerAnimation>();
     }
 
-    public void OnDisparar(InputValue valor) {
+    public void OnDisparo(InputValue valor) { //nombre del valor del inputvalue
 
         if (!valor.isPressed) 
             return;
@@ -28,6 +28,7 @@ public class Disparo : MonoBehaviour{
         if (prefabBala == null || puntoDisparoDerecha == null || puntoDisparoIzquierda == null) 
             return;
 
+        Debug.Log("disparaste");
 
         StartCoroutine("CorrutinaDisparo");
     }
@@ -46,11 +47,5 @@ public class Disparo : MonoBehaviour{
         else
             Instantiate(prefabBala, puntoDisparoIzquierda.position, puntoDisparoIzquierda.rotation);
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
