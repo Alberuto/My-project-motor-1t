@@ -51,7 +51,7 @@ public class PlayerMove : MonoBehaviour{
         if (other.gameObject.CompareTag("Platform")) {
 
             enSuelo = true;
-            transform.SetParent(other.transform);
+           // transform.SetParent(other.transform);
         }
     }
     private void OnCollisionExit2D(Collision2D other){
