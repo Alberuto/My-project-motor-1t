@@ -7,6 +7,7 @@ public class Datos : MonoBehaviour{
     [Header("UI")] public Canvas canvas;
     public TextMeshProUGUI puntosTexto;
     public TextMeshProUGUI puntosDinamicos;
+    public GameObject panelVictoria;
 
     public static Datos Instance;
 
@@ -34,6 +35,14 @@ public class Datos : MonoBehaviour{
 
         if(puntosTexto)
             puntosTexto.text = "Quedan: "+puntos.ToString();
+        if (puntos == 0) {
+            // Mostrar panel de victoria
+            if (panelVictoria != null) {
+                panelVictoria.SetActive(true);
+            }
+            // Opcional: detener el tiempo para pausar el juego
+            Time.timeScale = 0f;
+        }
     }
     public void AddPoints(int points) {
         puntos -= points;
@@ -53,14 +62,11 @@ public class Datos : MonoBehaviour{
         }
         RectTransform rt = puntosDinamicos.rectTransform;
 
-        if (canvas.renderMode == RenderMode.ScreenSpaceOverlay)
-        {
+        if (canvas.renderMode == RenderMode.ScreenSpaceOverlay) {
 
             rt.position = sceenPos;
-
         }
-        else
-        {
+        else {
 
             RectTransform canvasRT = canvas.transform as RectTransform;
             Vector2 localPoint;
