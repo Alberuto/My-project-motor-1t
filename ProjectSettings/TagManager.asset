@@ -15,6 +15,7 @@ TagManager:
   - Negro
   - Level3
   - Platform
+  - Environment
   layers:
   - Default
   - TransparentFX

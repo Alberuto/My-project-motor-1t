@@ -17,7 +17,7 @@ public class EnemyCollider : MonoBehaviour{
     private VidasJugador playerLifes;
     private bool inmune = false;
 
-    List<string> colorTags = new List<string> { "Rojo", "Azul", "Rosa", "Verde", "Negro" };
+    List<string> colorTags = new List<string> { "Rojo", "Azul", "Rosa", "Verde", "Negro", "Environment" };
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
@@ -32,12 +32,10 @@ public class EnemyCollider : MonoBehaviour{
 
             if (!inmune){
                 playerLifes.RemoveLives();
-                if (sonidoDamage != null)
-                {
+                if (sonidoDamage != null) {
                     sonidoDamage.Play();
                 }
-                else
-                {
+                else {
                     Debug.LogError("sonidoDamage no asignado en el Inspector.");
                 }
                 StartCoroutine(ActivarInmunidad());
@@ -55,19 +53,16 @@ public class EnemyCollider : MonoBehaviour{
         else {
             Debug.LogError("Game Over Panel no asignado en el Inspector.");
         }
-        if (sonidoMorir != null)
-        {
+        if (sonidoMorir != null) {
             sonidoMorir.Play();
         }
-        else
-        {
+        else {
             Debug.LogError("sonidoDamage no asignado en el Inspector.");
         }
 
         playerAnimation.AnimacionMuerte();
         playerMove.Parar();
         yield return new WaitForSecondsRealtime (3);
-        Time.timeScale = 1;
         Time.timeScale = 0;
         SceneManager.LoadScene("Portada");
     }
