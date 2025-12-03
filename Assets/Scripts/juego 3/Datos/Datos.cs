@@ -48,7 +48,7 @@ public class Datos : MonoBehaviour{
         puntos -= points;
         ActualizarDatos ();
     }
-    public void MostrarPuntosDinamicos(int punts, Vector3 posicionMundoPowerUp) {
+   /* public void MostrarPuntosDinamicos(int punts, Vector3 posicionMundoPowerUp) {
 
         if (puntosDinamicos)
             puntosDinamicos.text = "+" + punts;
@@ -89,5 +89,5 @@ public class Datos : MonoBehaviour{
             yield return null;
         }
         puntosDinamicos.gameObject.SetActive(false);
-    }
+    }*/
 }

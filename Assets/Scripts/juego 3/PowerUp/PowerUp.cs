@@ -20,7 +20,7 @@ public class PowerUp : MonoBehaviour{
         if (collision.CompareTag("Player")) {
 
             Datos.Instance.AddPoints(puntosPowerUp);
-            Datos.Instance.MostrarPuntosDinamicos(puntosPowerUp, transform.position);
+           // Datos.Instance.MostrarPuntosDinamicos(puntosPowerUp, transform.position);
 
             if (--collision.GetComponent<ContadorPowerUp>().powerUps == 0) {
 
