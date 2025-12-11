@@ -9,7 +9,13 @@ public class Datos : MonoBehaviour{
     public TextMeshProUGUI puntosDinamicos;
     public GameObject panelVictoria;
 
+    [Header("Cronómetro")]
+    public TextMeshProUGUI cronometroTexto;
+
     public static Datos Instance;
+
+    private float tiempoTranscurrido;
+    private bool contando = true;
 
     public int puntos;
     public int vidas;
@@ -41,6 +47,7 @@ public class Datos : MonoBehaviour{
                 panelVictoria.SetActive(true);
             }
             // Opcional: detener el tiempo para pausar el juego
+            contando = false;   // parar cronómetro
             Time.timeScale = 0f;
         }
     }
@@ -48,46 +55,58 @@ public class Datos : MonoBehaviour{
         puntos -= points;
         ActualizarDatos ();
     }
-   /* public void MostrarPuntosDinamicos(int punts, Vector3 posicionMundoPowerUp) {
+    void Update() {
+        if (contando) {
 
-        if (puntosDinamicos)
-            puntosDinamicos.text = "+" + punts;
-        Vector3 sceenPos = Camera.main.WorldToScreenPoint(posicionMundoPowerUp + Vector3.up * 1.2f);
-        puntosDinamicos.transform.position = sceenPos;
+            tiempoTranscurrido += Time.deltaTime;
+            int segundos = Mathf.FloorToInt(tiempoTranscurrido);
+            if (cronometroTexto != null) {
 
-        if (sceenPos.z < 0f)
-        {
-
-            puntosDinamicos.gameObject.SetActive(false);
+                cronometroTexto.text = "Tiempo Transcurrido: " + segundos.ToString();
+            }
         }
-        RectTransform rt = puntosDinamicos.rectTransform;
-
-        if (canvas.renderMode == RenderMode.ScreenSpaceOverlay) {
-
-            rt.position = sceenPos;
-        }
-        else {
-
-            RectTransform canvasRT = canvas.transform as RectTransform;
-            Vector2 localPoint;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRT, sceenPos, canvas.worldCamera, out localPoint);
-            rt.anchoredPosition = localPoint;
-        }
-        puntosDinamicos.gameObject.SetActive(true);
-        StartCoroutine(AnimarPuntosUI(rt));
     }
-    private IEnumerator AnimarPuntosUI(RectTransform rt) {
 
-        float duration = 0.4f;
-        float t = 0f;
-        Vector2 start = rt.anchoredPosition;
+    /* public void MostrarPuntosDinamicos(int punts, Vector3 posicionMundoPowerUp) {
 
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            rt.anchoredPosition = start + new Vector2(0, t * 40f);
-            yield return null;
-        }
-        puntosDinamicos.gameObject.SetActive(false);
-    }*/
+         if (puntosDinamicos)
+             puntosDinamicos.text = "+" + punts;
+         Vector3 sceenPos = Camera.main.WorldToScreenPoint(posicionMundoPowerUp + Vector3.up * 1.2f);
+         puntosDinamicos.transform.position = sceenPos;
+
+         if (sceenPos.z < 0f)
+         {
+
+             puntosDinamicos.gameObject.SetActive(false);
+         }
+         RectTransform rt = puntosDinamicos.rectTransform;
+
+         if (canvas.renderMode == RenderMode.ScreenSpaceOverlay) {
+
+             rt.position = sceenPos;
+         }
+         else {
+
+             RectTransform canvasRT = canvas.transform as RectTransform;
+             Vector2 localPoint;
+             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRT, sceenPos, canvas.worldCamera, out localPoint);
+             rt.anchoredPosition = localPoint;
+         }
+         puntosDinamicos.gameObject.SetActive(true);
+         StartCoroutine(AnimarPuntosUI(rt));
+     }
+     private IEnumerator AnimarPuntosUI(RectTransform rt) {
+
+         float duration = 0.4f;
+         float t = 0f;
+         Vector2 start = rt.anchoredPosition;
+
+         while (t < duration)
+         {
+             t += Time.deltaTime;
+             rt.anchoredPosition = start + new Vector2(0, t * 40f);
+             yield return null;
+         }
+         puntosDinamicos.gameObject.SetActive(false);
+     }*/
 }
