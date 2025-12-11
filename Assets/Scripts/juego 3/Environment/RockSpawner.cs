@@ -5,18 +5,18 @@ public class RockSpawner : MonoBehaviour {
     public GameObject rockPrefab;
 
     [Header("Rango de X donde puede caer")]
-    public float minXOffset = -1f;
-    public float maxXOffset = 1f;
+    public float minXOffset = -1.5f;
+    public float maxXOffset = 1.5f;
 
     [Header("Tiempos entre rocas")]
-    public float minDelay = 1f;
-    public float maxDelay = 3f;
+    public float minDelay = 3f;
+    public float maxDelay = 9f;
 
     [Header("Velocidad / gravedad")]
-    public float minGravityScale = 1f;
-    public float maxGravityScale = 3f;
+    public float minGravityScale = 0.5f;
+    public float maxGravityScale = 1.5f;
     public float minExtraDownForce = 0f;
-    public float maxExtraDownForce = 2f;
+    public float maxExtraDownForce = 1f;
 
     private void Start() {
         StartCoroutine(SpawnLoop());
@@ -30,7 +30,7 @@ public class RockSpawner : MonoBehaviour {
     }
     private void SpawnRock() {
 
-        // Posición aleatoria en X alrededor del spawner
+        // Posiciï¿½n aleatoria en X alrededor del spawner
         float xOffset = Random.Range(minXOffset, maxXOffset);
         Vector3 spawnPos = transform.position + new Vector3(xOffset, 0f, 0f);
         GameObject rock = Instantiate(rockPrefab, spawnPos, Quaternion.identity);
@@ -41,7 +41,7 @@ public class RockSpawner : MonoBehaviour {
 
             rb.gravityScale = Random.Range(minGravityScale, maxGravityScale);
             float extraDown = Random.Range(minExtraDownForce, maxExtraDownForce);
-            rb.velocity = new Vector2(0f, -extraDown);
+            rb.linearVelocity = new Vector2(0f, -extraDown);
         }
     }
 }

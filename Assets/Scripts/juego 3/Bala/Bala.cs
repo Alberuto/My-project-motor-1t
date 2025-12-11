@@ -47,12 +47,16 @@ public class Bala : MonoBehaviour{
             }
             else if (collision.tag == "Verde") {
                 Datos.Instance.AddPoints(1);
+                VidasJugador playerLifes = FindObjectOfType<VidasJugador>();
+                if (playerLifes != null) {
+                    playerLifes.AddLives();
+                }
             }
             else if (collision.tag == "Negro") {
                 Datos.Instance.AddPoints(5);
             }
             Destroy(collision.gameObject);
-            Destroy(gameObject,3f);
+            Destroy(gameObject);
             // Datos.Instance.AddPoints(collision.gameObject.GetComponent<EnemyMove>().puntos);
             //   Datos.Instance.MostrarPuntosDinamicos(collision.gameObject.GetComponent<EnemyMove>().puntos, transform.position);
         }

@@ -28,9 +28,12 @@ public class EnemyCollider : MonoBehaviour{
     }
     private void OnCollisionEnter2D(Collision2D other) {
 
+        if (other.collider.CompareTag("Verde"))
+            playerLifes.AddLives();
+
         if (colorTags.Contains(other.collider.tag)) {
 
-            if (!inmune){
+                if (!inmune){
                 playerLifes.RemoveLives();
                 if (sonidoDamage != null) {
                     sonidoDamage.Play();

@@ -40,12 +40,12 @@ public class VidasJugador : MonoBehaviour{
     }
     public void RemoveLives(){
 
-        maxLives--;
+        currentLives--;
         SetLives(currentLives);
     }
     public void AddLives(){
 
-        maxLives++;
+        currentLives++;
         SetLives(currentLives);
     }
 }
