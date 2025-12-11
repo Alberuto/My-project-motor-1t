@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -3296362929794034626, guid: 3f75ffaa10317de4fbf1850caddd10a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10d1d3829426be4fbe9775be271ca5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bala
-  velocidad: 20
+  velocidad: 14
   tiempoVida: 2
   sonidoDisparo: {fileID: 5963122741011068445}
   sonidoExplosion: {fileID: 3200089458966101600}
