@@ -133674,6 +133674,7 @@ MonoBehaviour:
   puntosTexto: {fileID: 557895068}
   puntosDinamicos: {fileID: 1443067195}
   panelVictoria: {fileID: 856101457}
+  cronometroTexto: {fileID: 718442131}
   puntos: 101
   vidas: 5
 --- !u!4 &1221623621
